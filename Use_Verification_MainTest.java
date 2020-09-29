@@ -56,6 +56,30 @@ class Use_Verification_MainTest {
 		boolean result = ucMain.validateEMail("Chinimilligmailcom");
 		assertFalse(result);		
 	}
+	@Test
+	public void givenPhnNumber_WhenProper_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePNum("91 9912222442");
+		assertTrue(result);		
+	}
+	@Test
+	public void givenPhnNumber_WhenNoCountryCode_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePNum("9912222442");
+		assertFalse(result);		
+	}
+	@Test
+	public void givenPhnNumber_WhenNoSpaceBtwCCodeAndNum_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePNum("919912222442");
+		assertFalse(result);		
+	}
+	@Test
+	public void givenPhnNumber_WhenNotEnoughCharacters_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePNum("91 912222442");
+		assertFalse(result);		
+	}
 	
 	
 }
