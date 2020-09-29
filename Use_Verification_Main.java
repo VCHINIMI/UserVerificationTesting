@@ -15,4 +15,14 @@ public class Use_Verification_Main {
 			return false;		
 	}
 
+	public boolean validatelName(String string) {
+		String regex ="^[A-Z]{1}[a-z]{2,}$";		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(string);		
+		if(matcher.matches()) 
+			return true;
+		else 
+			return false;		
+	}	
+
 }
