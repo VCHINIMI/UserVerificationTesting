@@ -81,10 +81,10 @@ class Use_Verification_MainTest {
 		assertFalse(result);		
 	}
 	@Test
-	public void givenPassWord_WhenProper_ShouldReturnTrue() {
+	public void givenPassWord_WhenNoCapital_ShouldReturnFalse() {
 		Use_Verification_Main ucMain = new Use_Verification_Main();
 		boolean result = ucMain.validatePWord("vinaychi");
-		assertTrue(result);
+		assertFalse(result);
 	}
 	@Test
 	public void givenPassWord_WhenNotEnoughChar_ShouldReturnFalse() {
@@ -92,5 +92,12 @@ class Use_Verification_MainTest {
 		boolean result = ucMain.validatePWord("vinayc");
 		assertFalse(result);
 	}
+	@Test
+	public void givenPassWord_WhenAtlestOneCapital_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("Vinaychi");
+		assertTrue(result);
+	}
+	
 	
 }
