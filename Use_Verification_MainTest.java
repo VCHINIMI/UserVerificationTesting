@@ -44,4 +44,18 @@ class Use_Verification_MainTest {
 		boolean result = ucMain.validatelName("vinay");
 		assertFalse(result);
 	}
+	@Test
+	public void givenEmail_WhenProper_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validateEMail("Chinimilli@gmail.com");
+		assertTrue(result);		
+	}
+	@Test
+	public void givenEmail_WhenNotHavingATandCOM_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validateEMail("Chinimilligmailcom");
+		assertFalse(result);		
+	}
+	
+	
 }

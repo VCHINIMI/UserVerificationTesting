@@ -23,6 +23,17 @@ public class Use_Verification_Main {
 			return true;
 		else 
 			return false;		
+	}
+
+	public boolean validateEMail(String string) {
+		String regex ="^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]{2,})?(\\.[a-z]{2,})?$";		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(string);
+		
+		if(matcher.matches()) 
+			return true;
+		else 
+			return false;
 	}	
 
 }
