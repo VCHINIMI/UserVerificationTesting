@@ -96,8 +96,12 @@ class Use_Verification_MainTest {
 	public void givenPassWord_WhenAtlestOneCapital_ShouldReturnTrue() {
 		Use_Verification_Main ucMain = new Use_Verification_Main();
 		boolean result = ucMain.validatePWord("Vinaychi");
+		assertFalse(result);
+	}
+	@Test
+	public void givenPassWord_WhenAtlestOneCapitalAndOneDigit_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("Vinaychi9");
 		assertTrue(result);
 	}
-	
-	
 }

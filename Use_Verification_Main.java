@@ -48,7 +48,7 @@ public class Use_Verification_Main {
 	}
 
 	public boolean validatePWord(String string) {
-		String regex ="^(?=.*[A-Z])[A-Za-z\\d!@#$%^&*()_+]{8,}$";		 
+		String regex ="^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d][A-Za-z\\d!@#$%^&*()_+]{8,}$";		 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(string);
 		
