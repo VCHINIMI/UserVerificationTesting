@@ -93,15 +93,27 @@ class Use_Verification_MainTest {
 		assertFalse(result);
 	}
 	@Test
-	public void givenPassWord_WhenAtlestOneCapital_ShouldReturnTrue() {
+	public void givenPassWord_WhenAtlestOneCapital_ShouldReturnFalse() {
 		Use_Verification_Main ucMain = new Use_Verification_Main();
 		boolean result = ucMain.validatePWord("Vinaychi");
 		assertFalse(result);
 	}
 	@Test
-	public void givenPassWord_WhenAtlestOneCapitalAndOneDigit_ShouldReturnTrue() {
+	public void givenPassWord_WhenAtlestOneCapitalAndOneDigit_ShouldReturnFalse() {
 		Use_Verification_Main ucMain = new Use_Verification_Main();
 		boolean result = ucMain.validatePWord("Vinaychi9");
+		assertFalse(result);
+	}
+	@Test
+	public void givenPassWord_WhenAtlestOneCapitalAndOneDigitAndOnlyOneChar_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("Vinaychi9@");
 		assertTrue(result);
+	}
+	@Test
+	public void givenPassWord_WhenAtlestOneCapitalAndOneDigitAndMoreThanOneChar_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("@Vinaychi9@");
+		assertFalse(result);
 	}
 }
