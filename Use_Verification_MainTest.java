@@ -80,6 +80,17 @@ class Use_Verification_MainTest {
 		boolean result = ucMain.validatePNum("91 912222442");
 		assertFalse(result);		
 	}
-	
+	@Test
+	public void givenPassWord_WhenProper_ShouldReturnTrue() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("vinaychi");
+		assertTrue(result);
+	}
+	@Test
+	public void givenPassWord_WhenNotEnoughChar_ShouldReturnFalse() {
+		Use_Verification_Main ucMain = new Use_Verification_Main();
+		boolean result = ucMain.validatePWord("vinayc");
+		assertFalse(result);
+	}
 	
 }

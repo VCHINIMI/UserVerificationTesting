@@ -45,6 +45,17 @@ public class Use_Verification_Main {
 			return true;
 		else 
 			return false;
+	}
+
+	public boolean validatePWord(String string) {
+		String regex ="^[A-Za-z\\d!@#$%^&*()_+]{8,}$";		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(string);
+		
+		if(matcher.matches()) 
+			return true;
+		else 
+			return false;
 	}	
 
 }
