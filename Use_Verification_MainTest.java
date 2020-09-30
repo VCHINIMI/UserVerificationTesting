@@ -1,11 +1,66 @@
 package myPackageVinay;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 
-class Use_Verification_MainTest {	
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+@RunWith(Parameterized.class)
+public class Use_Verification_MainTest {	
 	
+	private String email;
+	private boolean expectedResult;
+	private Use_Verification_Main uv_main;
+	public Use_Verification_MainTest (String email,Boolean expectedResult){
+		super();
+		this.email = email;
+		this.expectedResult = expectedResult;
+	}
+	@Before 
+	public void Initialize() {
+		uv_main = new Use_Verification_Main();
+	}
+
+	@Parameterized.Parameters
+	public static Collection input() {
+		return Arrays.asList(new Object[][] {
+			{"abc@yahoo.com",true},
+			{"abc-100@yahoo.com",true},
+			{"abc.100@yahoo.com",true},
+			{"abc111@abc.com",true},
+			{"abc-100@abc.net",true},
+			{"abc.100@abc.com.au",true},
+			{"abc@1.com",true},
+			{"abc@gmail.com.com",true},
+			{"abc+100@gmail.com",true},
+			{"abc",false},
+			{"abc@.com",false},
+			{"abc123@gmail.a",false},
+			{"abc123@.com",false},
+			{"abc123@.com.com",false},
+			{".abc@abc.com",false},
+			{"abc()*@gmail.com",false},
+			{"abc@%*.com",false},
+			{"abc..2002@gmail.com",false},
+			{"abc.@gmail.com",false},
+			{ "abc@abc@gmail.com",false},
+			{"abc@gmail.com.1a",false},
+			{"abc@gmail.com.aa.au",false},
+		});
+		
+	}
+	@Test
+	public void testEmailChecker() {
+		//System.out.println("Parameterized email is :"+);
+		assertEquals( expectedResult, uv_main.validateEMail(email));
+	}
 	@Test
 	public void givenFirstName_WhenProper_ShouldReturnTrue() {
 		Use_Verification_Main ucMain = new Use_Verification_Main();
