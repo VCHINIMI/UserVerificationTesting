@@ -8,9 +8,10 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
+
 
 @RunWith(Parameterized.class)
 public class Use_Verification_MainTest {	
@@ -80,7 +81,6 @@ public class Use_Verification_MainTest {
 			result = ucMain.validatefName("Vi");
 			assertFalse(result);
 		} catch (Use_Verification_Exception e) {
-			//System.out.println(e.getMessage());
 			assertEquals(Use_Verification_Exception.ExceptionType.ENTERED_INVALID, e.exceptionType);
 		}
 				
@@ -166,7 +166,7 @@ public class Use_Verification_MainTest {
 			assertEquals( expectedResult, uv_main.validateEMail(email));
 		} catch (Use_Verification_Exception e) {
 			//System.out.println(e.getMessage());
-			//assertEquals(Use_Verification_Exception.ExceptionType.ENTERED_EMPTY, e.exceptionType);
+			assertEquals(Use_Verification_Exception.ExceptionType.ENTERED_INVALID, e.exceptionType);
 		}
 	}
 
