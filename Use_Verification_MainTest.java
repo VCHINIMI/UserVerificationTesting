@@ -160,15 +160,15 @@ public class Use_Verification_MainTest {
 				
 	}
 	
-	/*@Test
+	@Test
 	public void testEmailChecker() {
 		try {
 			assertEquals( expectedResult, uv_main.validateEMail(email));
 		} catch (Use_Verification_Exception e) {
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
 			//assertEquals(Use_Verification_Exception.ExceptionType.ENTERED_EMPTY, e.exceptionType);
 		}
-	}*/
+	}
 
 	@Test
 	public void givenPhnNumber_WhenProper_ShouldReturnTrue() {
